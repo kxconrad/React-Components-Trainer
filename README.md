@@ -1,6 +1,6 @@
 # React Components Trainer
 
-Application to trainee important elements and concepts of React.js library
+Application to trainee important elements and concepts of React.js library. Build with Create React App.
 
 ## What contains this application?
 
