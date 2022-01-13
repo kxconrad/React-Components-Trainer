@@ -1,0 +1,8 @@
+html,body,
+#root{
+    height: 100%;
+    width: 100%;
+}
+.component-displayer{
+height: calc(100% - 270px);
+}
