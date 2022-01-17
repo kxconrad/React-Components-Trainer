@@ -4,5 +4,5 @@ html,body,
     width: 100%;
 }
 .component-displayer{
-height: calc(100% - 270px);
+height: calc(100% - 315px);
 }
