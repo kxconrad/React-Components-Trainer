@@ -1,5 +1,6 @@
 import React from 'react';
 import getShoppingOpenData from '../../../../api/shoppingListApi';
+import Button from '../../../general/element/Button';
 
 class CenterSide extends React.Component {
 
@@ -42,7 +43,7 @@ class CenterSide extends React.Component {
                 <div className="card-body text-center">
                     <h5 className="card-title">Get your content from server</h5>
                     <p className="card-text">{this.state.requestingStatus}</p>
-                    <a href="#" className="btn btn-primary" onClick={this.onClickGetData}>render</a>
+                    <Button text="render" actionHandler={this.onClickGetData} />
                 </div>
             </div>
         );
