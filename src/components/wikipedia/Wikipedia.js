@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import SearchInput from '../general/element/SearchInput';
 import LoadingSpinner from '../general/element/LoadingSpinner';
-import getQuery from '../../api/WikipediaApi';
+import wikipediaApi from '../../api/WikipediaApi';
 import ResponseDisplayer from './ResponseDisplayer';
 
 
@@ -9,24 +9,33 @@ const Wikipedia = () => {
 
     const [query, setQuery] = useState('');
     const [objectDetails, setObjectDetails] = useState({ inputDisabled: false, responseList: [] });
+    const [searchTerm, setSearchTerm] = useState('');
 
     function onUpdateInput(event) {
         const request = event.target.value;
         setQuery(request);
     }
 
-    async function onSubmit(event) {
+    useEffect(() => {
+        if (searchTerm) {
+            (async () => {
+                setObjectDetails({ inputDisabled: true });
+                const response = await wikipediaApi(searchTerm).get();
 
-        event.preventDefault();
-        if (query) {
-            setObjectDetails({ inputDisabled: true });
-            const response = await getQuery(query).get();
+                console.log("response: ", response);
+                if (response && response.data) {
+                    setObjectDetails({ inputDisabled: false, responseList: response.data.query.search });
+                }
+            })();
 
-            console.log("response: ", response);
-            if (response && response.data) {
-                setObjectDetails({ inputDisabled: false, responseList: response.data.query.search });
-            }
         }
+
+    }, [searchTerm]);
+
+
+    function onSubmit(event) {
+        event.preventDefault();
+        setSearchTerm(query);
 
     }
 
