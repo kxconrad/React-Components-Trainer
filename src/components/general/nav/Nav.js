@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 
 class Nav extends React.Component {
 
@@ -17,11 +18,10 @@ class Nav extends React.Component {
         const elements = navItems.map((element, key) => {
 
             let generalClasses = element.value == selectedNav ? 'me-active' : '';
-            let additionalClasses = element.value == selectedNav ? 'text-primary' : '';
 
-            return <li key={key} className={`nav-item ${generalClasses}`} data-value={element.value} onClick={this.activeMenuItem}>
-                <a className={`nav-link ${additionalClasses}`} aria-current="page" href="#">{element.text}</a>
-            </li>;
+            return <Link to={element.value == 'homepage' ? '/' : element.value} key={key} className={`nav-link ${generalClasses}`} data-value={element.value} onClick={this.activeMenuItem}>
+                {element.text}
+            </Link>;
 
         });
 
