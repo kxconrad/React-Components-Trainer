@@ -1,4 +1,3 @@
-import React from 'react';
 import DOMPurify from 'dompurify';
 import styled from 'styled-components';
 
@@ -9,6 +8,7 @@ const StyledListWrapper = styled.div`
     width: 100%;
     justify-content: center;
     display: flex;
+    min-height: 250px;
 
     & ul{
         overflow: auto;

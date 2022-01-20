@@ -40,9 +40,9 @@ const Wikipedia = () => {
     }
 
     return (
-        <form className="d-flex flex-column h-100" onSubmit={onSubmit}>
+        <form className="d-flex flex-column" onSubmit={onSubmit}>
             <SearchInput inputValue={query} onUpdateInput={onUpdateInput} inputDisabled={objectDetails.inputDisabled} />
-            <div className="d-flex align-items-center justify-content-center h-100" style={{ marginTop: '20px', marginBottom: '20px' }}>
+            <div className="d-flex align-items-center justify-content-center" style={{ marginTop: '20px', marginBottom: '20px', minHeight: '250px' }}>
                 {objectDetails.inputDisabled ? <LoadingSpinner /> : <ResponseDisplayer responseList={objectDetails.responseList} />}
             </div>
 

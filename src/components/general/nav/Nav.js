@@ -1,27 +1,21 @@
 import React from 'react';
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 class Nav extends React.Component {
 
-
-    activeMenuItem = (element) => {
-        let clickedNav = element.currentTarget.dataset.value;
-        this.props.updateNav(clickedNav);
-
-    }
-
     render() {
 
-        const selectedNav = this.props.selectedNav;
         const navItems = this.props.navItems;
 
         const elements = navItems.map((element, key) => {
 
-            let generalClasses = element.value == selectedNav ? 'me-active' : '';
-
-            return <Link to={element.value == 'homepage' ? '/' : element.value} key={key} className={`nav-link ${generalClasses}`} data-value={element.value} onClick={this.activeMenuItem}>
+            return <NavLink
+                to={element.value == "homepage" ? "/" : element.value}
+                key={element.value}
+                className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}
+                data-value={element.value}>
                 {element.text}
-            </Link>;
+            </NavLink>;
 
         });
 

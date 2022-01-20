@@ -12,7 +12,7 @@ ReactDOM.render(
         <Routes>
             <Route path="/" element={<App />} >
                 <Route path="wikipedia" element={<Wikipedia />} />
-                <Route path="youtube" element={<Wikipedia />} />
+                <Route path="youtube" element={<Youtube />} />
                 <Route path="outside-requester" element={<OutsideApiRequester />} />
             </Route>
         </Routes>
