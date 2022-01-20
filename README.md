@@ -6,7 +6,6 @@ Application to trainee important elements and concepts of React.js library. Buil
 
 ##### - functional components
 ##### - class components
-##### - based on Bootstrap 5 and custom styles
-##### - API request and processing
-##### - Styled Components
+##### - based on Bootstrap 5, custom styles, Styled Components
+##### - API operations with Axios
 ##### - DOMPurify, React Router
