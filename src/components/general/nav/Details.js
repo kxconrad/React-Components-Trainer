@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import menuConfig from '../../../data/menuConfig';
+import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 
 const NavDescriptionElement = styled.div`
@@ -20,9 +22,25 @@ const StyledGeneralWords = styled.div`
 
 
 
-const Details = (props) => {
+const Details = () => {
 
-    const { navDetails, navDisplayedHeader } = props.navElement;
+    const location = useLocation();
+    const [navItem, setNavItem] = useState(menuConfig.navItems[0]);
+
+    const currentLocation = useState(location.pathname);
+
+    useEffect(() => {
+
+        menuConfig.navItems.forEach(element => {
+
+            let route = "/" + element.value;
+            if (route === location.pathname) {
+                setNavItem(element);
+            }
+        });
+
+    }, [location.pathname]);
+
     return (
         <StyledGeneralWords className="d-flex bg-light mt-4 p-3 justify-content-center">
             <div className="d-flex flex-column justify-content-center  text-left">
@@ -33,8 +51,8 @@ const Details = (props) => {
                 <p>Please, use top nav for interacting with specific components and functionality.</p>
             </div>
             <NavDescriptionElement className="d-flex flex-column">
-                <h5>{navDisplayedHeader}</h5>
-                <div>{navDetails}</div>
+                <h5>{navItem.header}</h5>
+                <div>{navItem.details}</div>
             </NavDescriptionElement>
         </StyledGeneralWords>
     );

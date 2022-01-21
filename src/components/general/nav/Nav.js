@@ -1,20 +1,19 @@
 import React from 'react';
 import { NavLink } from "react-router-dom";
+import menuConfig from '../../../data/menuConfig';
 
 class Nav extends React.Component {
 
     render() {
 
-        const navItems = this.props.navItems;
-
-        const elements = navItems.map((element, key) => {
+        const elements = menuConfig.navItems.map((element, key) => {
 
             return <NavLink
-                to={element.value == "homepage" ? "/" : element.value}
+                to={element.value}
                 key={element.value}
                 className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}
                 data-value={element.value}>
-                {element.text}
+                {element.header}
             </NavLink>;
 
         });
