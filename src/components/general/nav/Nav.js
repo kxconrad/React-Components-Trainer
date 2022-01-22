@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink } from "react-router-dom";
 import menuConfig from '../../../data/menuConfig';
 
+
 class Nav extends React.Component {
 
     render() {
@@ -11,7 +12,7 @@ class Nav extends React.Component {
             return <NavLink
                 to={element.value}
                 key={element.value}
-                className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}
+                className={({ isActive }) => isActive ? "nav-link active text-primary" : "nav-link"}
                 data-value={element.value}>
                 {element.header}
             </NavLink>;

@@ -1,5 +1,5 @@
 html,body,
-#root{
+#root, .general-wrapper{
     height: 100%;
     width: 100%;
 }

@@ -8,7 +8,7 @@ import Details from './general/nav/Details';
 const App = () => {
 
     return (
-        <div>
+        <div className="d-flex flex-column general-wrapper">
             <Nav />
             <Details />
             <Outlet />
