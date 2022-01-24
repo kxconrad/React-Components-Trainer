@@ -2,7 +2,7 @@ import React from 'react';
 import TopBar from './topbar/TopBar';
 import TaskList from './mainContent/TaskList';
 
-class OutsideRequester extends React.Component {
+class ShoppingList extends React.Component {
 
     state = {
         responseDataList: []
@@ -25,4 +25,4 @@ class OutsideRequester extends React.Component {
 };
 
 
-export default OutsideRequester;
+export default ShoppingList;

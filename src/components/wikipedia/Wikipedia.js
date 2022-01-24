@@ -54,12 +54,17 @@ const Wikipedia = () => {
 
     return (
         <StyledForm className="d-flex flex-column" onSubmit={onSubmit}>
-            <SearchInput inputValue={query} onUpdateInput={onUpdateInput} inputDisabled={objectDetails.inputDisabled} />
-            <div className="d-flex align-items-center justify-content-center list-wrapper" style={{ marginTop: '20px', marginBottom: '20px', minHeight: '250px' }}>
+            <SearchInput inputValue={query}
+                onUpdateInput={onUpdateInput}
+                inputDisabled={objectDetails.inputDisabled}
+                inputHint={<>Press <b>enter</b> to get results.</>}
+            >
+            </SearchInput>
+            < div className="d-flex align-items-center justify-content-center list-wrapper" style={{ marginTop: '20px', marginBottom: '20px', minHeight: '250px' }}>
                 {objectDetails.inputDisabled ? <LoadingSpinner /> : <ResponseDisplayer responseList={objectDetails.responseList} />}
-            </div>
+            </div >
 
-        </StyledForm>
+        </StyledForm >
 
     );
 };

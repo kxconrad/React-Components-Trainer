@@ -8,7 +8,7 @@ class TaskList extends React.Component {
 
         const elements = this.props.responseDataList.map(({ id, createdAt, ownerId }) => {
             console.log("single item: ", id);
-            return <li className="list-group-item" key={id}>
+            return <li className="list-group-item shadow rounded mb-4" key={id}>
                 <span>id: {id}</span><br />
                 <span>createdAt: {createdAt}</span><br />
                 <span>ownerId: {ownerId}</span>

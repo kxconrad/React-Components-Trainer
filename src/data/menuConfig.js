@@ -11,13 +11,13 @@ const menuConfig = {
             details: 'Type your requesting words and hit enter key to check some short details provided by Wikipedia API'
         },
         {
-            value: 'youtube',
-            header: 'Youtube',
-            details: 'Search for video related to your category, then select something from list to prepare video player'
+            value: 'public-apis',
+            header: 'Public Apis',
+            details: 'Get content from project https://github.com/public-apis/public-apis and display results'
         },
         {
-            value: 'outside-requester',
-            header: 'Outside API Requester',
+            value: 'shopping-list',
+            header: 'Shopping List',
             details: 'Play a litte with 3rd API to get some shopping list'
         }
     ]

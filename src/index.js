@@ -3,8 +3,8 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import App from './components/App';
 import Home from './components/home/Home';
 import Wikipedia from './components/wikipedia/Wikipedia';
-import Youtube from './components/youtube/Youtube';
-import OutsideApiRequester from './components/outsideRequester/OutsideRequester';
+import PublicApis from './components/publicApis/PublicApis';
+import ShoppingList from './components/shoppingList/ShoppingList';
 
 
 
@@ -15,8 +15,8 @@ ReactDOM.render(
                 <Route index element={<Navigate to="/home" replace={true} />} />
                 <Route path="home" element={<Home />} />
                 <Route path="wikipedia" element={<Wikipedia />} />
-                <Route path="youtube" element={<Youtube />} />
-                <Route path="outside-requester" element={<OutsideApiRequester />} />
+                <Route path="public-apis" element={<PublicApis />} />
+                <Route path="shopping-list" element={<ShoppingList />} />
             </Route>
         </Routes>
     </BrowserRouter>,

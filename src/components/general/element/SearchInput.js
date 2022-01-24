@@ -7,15 +7,19 @@ const StyledSearchInput = styled.div`
 `;
 
 
-const SearchInput = ({ inputValue, onUpdateInput, inputDisabled = false }) => {
+const SearchInput = ({ inputValue, onUpdateInput, inputHint = false, inputDisabled = false }) => {
 
     return (
         <StyledSearchInput>
             <label htmlFor="search" className="form-label">Type your searching words</label>
             <input type="text" id="search" className="form-control search-input" onChange={onUpdateInput} value={inputValue} disabled={inputDisabled} />
-            <div className="form-text">
-                Press <b>enter</b> to get results.
-            </div>
+            {inputHint ?
+                <div className="form-text">
+                    {inputHint}
+                </div>
+                : null
+            }
+
         </StyledSearchInput>
     );
 
