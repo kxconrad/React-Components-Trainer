@@ -1,6 +1,8 @@
 import { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import configuration from '../../data/publicApisConfig';
+import publicApisApi from '../../api/publicApisApi';
+// import useRequest from '../../hooks/useRequest';
 
 const StyledWrapper = styled.div`
     padding: 20px;
@@ -12,35 +14,41 @@ const StyledWrapper = styled.div`
 
 const PublicApis = () => {
 
-    const [selectObject, setSelectObject] = useState(configuration[0]);
-    const [activeSubSelect, setActiveSubSelect] = useState(selectObject.subCategories[0]);
+    const [category, setCategory] = useState(configuration[0]);
+    const [subCategory, setSubCategory] = useState(configuration[0].subCategories[0]);
 
-    const selectedSubCategory = useRef(null);
+    const categorySelect = useRef(null);
+    const subCategorySelect = useRef(null);
     const queryWordsHeader = useRef(null);
 
 
     useEffect(() => {
-        const queryWords = `<h3>query:</h3> <b>${selectObject.category}</b> ----> <b>${selectedSubCategory.current.selectedOptions[0].value}</b>`;
+
+        const queryWords = `<h3>query:</h3> <b>${categorySelect.current.value}</b> ----> <b>${subCategorySelect.current.selectedOptions[0].value}</b>`;
         queryWordsHeader.current.innerHTML = queryWords;
 
-    }, [selectObject, activeSubSelect]);
+        console.log("category: ", category);
+        console.log("subCategory: ", subCategory);
+
+    }, [category, subCategory]);
 
 
-    const updateCategory = (event) => {
+    const onSelectChange = (event) => {
 
         configuration.forEach((item) => {
-            if (item.category == event.target.value) {
-                setSelectObject(item);
+            if (item.value == event.target.value) {
+                setCategory(item);
+                setSubCategory(item.subCategories[0]);
             }
         });
 
     }
 
-    const updateSubSategory = (event) => {
+    const onSubSelectChange = (event) => {
 
-        selectObject.subCategories.forEach((item) => {
+        category.subCategories.forEach((item) => {
             if (item.value == event.target.value) {
-                setActiveSubSelect(item);
+                setSubCategory(item);
             }
         });
 
@@ -48,13 +56,13 @@ const PublicApis = () => {
 
     const categoriesOptions = configuration.map((item) => {
         return <option
-            key={item.category}
-            value={item.category}>
+            key={item.value}
+            value={item.value}>
             {item.categoryTxt}
         </option>
     });
 
-    const subCategoriesOptions = selectObject.subCategories.map((item) => {
+    const subCategoriesOptions = category.subCategories.map((item) => {
         return <option
             key={item.value}
             value={item.value}>
@@ -62,20 +70,18 @@ const PublicApis = () => {
         </option>
     });
 
-    console.log("selectObject: ", selectObject);
-    console.log("selectObject.category: ", selectObject.category);
 
     return (
         <StyledWrapper className="d-flex flex-row">
             <div className="me-5">
-                {console.log("rerendered")}
+                {console.log("rendered")}
                 <h5>Select category for search:</h5>
-                <select className="form-select" onChange={updateCategory}>
+                <select className="form-select" ref={categorySelect} onChange={onSelectChange}>
                     {categoriesOptions}
                 </select>
                 <br />
                 <h5>Select specific one from category:</h5>
-                <select className="form-select" ref={selectedSubCategory} onChange={updateSubSategory}>
+                <select className="form-select" ref={subCategorySelect} onChange={onSubSelectChange}>
                     {subCategoriesOptions}
                 </select>
             </div>

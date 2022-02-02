@@ -1,35 +1,43 @@
 const configuration = [
     {
-        category: "dogs",
+        value: "dogs",
         categoryTxt: "Dogs",
         subCategories: [
             {
                 value: "dog-facts",
                 valueTxt: "Dog Facts",
-                apiUrl: "https://kinduff.github.io/dog-api/"
+                url: "https://kinduff.github.io/dog-api",
+                api: "http://dog-api.kinduff.com/api",
+                endpoint: "/facts?number=5"
             },
             {
                 value: "dog-api",
                 valueTxt: "Dog API",
-                apiUrl: "https://dog.ceo/api/breeds/image/random"
+                url: "https://dog.ceo/dog-api/",
+                api: "https://dog.ceo/api",
+                endpoint: "/breeds/image/random"
             }
 
         ]
 
     },
     {
-        category: "cats",
+        value: "cats",
         categoryTxt: "Cats",
         subCategories: [
             {
                 value: "cat-facts",
                 valueTxt: "Cat Facts",
-                apiUrl: "https://cat-fact.herokuapp.com/facts"
+                url: "https://cat-fact.herokuapp.com",
+                api: "https://cat-fact.herokuapp.com",
+                endpoint: "/facts"
             },
             {
                 value: "cataas",
                 valueTxt: "Cataas",
-                apiUrl: "https://cataas.com/cat"
+                url: "https://cataas.com/",
+                api: "https://cataas.com",
+                endpoint: "/cat?json=true"
             }
 
         ]
