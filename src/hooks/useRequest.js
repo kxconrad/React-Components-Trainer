@@ -1,19 +1,23 @@
 import { useState, useEffect } from 'react';
 
 const useRequest = (requestHandler, url) => {
+
     console.log("requestHandler: ", requestHandler);
     console.log("url: ", url);
-    const [response, setResponse] = useState(null);
+    const [responseData, setResponseData] = useState(null);
 
     useEffect(() => {
-        if (requestHandler) {
-            console.log("url: ", url);
-            const data = requestHandler(url).get();
-            console.log("response: ", data);
-        }
-    }, [requestHandler, url]);
 
-    return [];
+        const getResponse = async () => {
+            const { data } = await requestHandler(url).get();
+            console.log("response: ", data);
+            setResponseData(data);
+        }
+        getResponse();
+
+    }, [url]);
+
+    return [responseData, setResponseData];
 }
 
 export default useRequest;

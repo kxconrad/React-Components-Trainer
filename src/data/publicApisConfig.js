@@ -4,19 +4,19 @@ const configuration = [
         categoryTxt: "Dogs",
         subCategories: [
             {
-                value: "dog-facts",
-                valueTxt: "Dog Facts",
-                url: "https://kinduff.github.io/dog-api",
-                api: "http://dog-api.kinduff.com/api",
-                endpoint: "/facts?number=5"
-            },
-            {
                 value: "dog-api",
                 valueTxt: "Dog API",
                 url: "https://dog.ceo/dog-api/",
                 api: "https://dog.ceo/api",
                 endpoint: "/breeds/image/random"
-            }
+            },
+            {
+                value: "random-fox",
+                valueTxt: "Random Fox",
+                url: "https://randomfox.ca/floof/",
+                api: "https://randomfox.ca/floof/",
+                endpoint: ""
+            },
 
         ]
 
