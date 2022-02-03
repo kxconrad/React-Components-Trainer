@@ -4,8 +4,8 @@ Application to trainee important elements and concepts of React.js library. Buil
 
 ## What contains this application?
 
-##### - functional components
+##### - functional components - hooks, custom hooks
 ##### - class components
-##### - based on Bootstrap 5, custom styles, Styled Components
-##### - API operations with Axios
+##### - Bootstrap 5, Styled Components, custom styles
+##### - API requests with Axios
 ##### - DOMPurify, React Router
