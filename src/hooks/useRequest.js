@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 
 const useRequest = (requestHandler, url) => {
 
-    console.log("requestHandler: ", requestHandler);
     console.log("url: ", url);
     const [responseData, setResponseData] = useState(null);
 

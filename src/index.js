@@ -4,6 +4,7 @@ import App from './components/App';
 import Home from './components/home/Home';
 import Wikipedia from './components/wikipedia/Wikipedia';
 import PublicApis from './components/publicApis/PublicApis';
+import Company from './components/company/Company';
 import ShoppingList from './components/shoppingList/ShoppingList';
 
 
@@ -16,6 +17,7 @@ ReactDOM.render(
                 <Route path="home" element={<Home />} />
                 <Route path="wikipedia" element={<Wikipedia />} />
                 <Route path="public-apis" element={<PublicApis />} />
+                <Route path="company-redux" element={<Company />} />
                 <Route path="shopping-list" element={<ShoppingList />} />
             </Route>
         </Routes>

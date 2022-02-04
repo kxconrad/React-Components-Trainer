@@ -16,6 +16,11 @@ const menuConfig = {
             details: 'Get content from project https://github.com/public-apis/public-apis and display results'
         },
         {
+            value: 'company-redux',
+            header: 'Company',
+            details: 'Imitation of company with workers, some actions which can occurs. Prepared with help of Redux'
+        },
+        {
             value: 'shopping-list',
             header: 'Shopping List',
             details: 'Play a litte with 3rd API to get some shopping list'
